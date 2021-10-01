@@ -7,4 +7,5 @@ public class StudentInput {
     private long id;
     private String firstName;
     private String lastName;
+    
 }
