@@ -54,4 +54,18 @@ private final StudentService studentService;
             throw new NoSuchElementException();
         return apiResponse;
     }
+
+    @PutMapping("/updatestudent")
+    public APIResponse updateStudent(@RequestBody StudentInput studentInput) {
+        Student student = studentService.getStudentDetails(studentInput.getId());
+        if(null != student) {
+           apiResponse= APIResponse.builder()
+                    .message("Student updated successfully")
+                    .status(true)
+                   .entity(studentService.updateStudent(studentInput,student)).build();
+        }
+        else
+            throw new NoSuchElementException();
+        return apiResponse;
+    }
 }

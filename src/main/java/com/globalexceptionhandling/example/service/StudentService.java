@@ -30,4 +30,11 @@ public class StudentService {
             a = studentRepository.deleteStudent(id);
         return a;
     }
+
+    public Student updateStudent(StudentInput studentInput,Student student)
+    {
+            student.setFirstName(studentInput.getFirstName());
+            student.setLastName(studentInput.getLastName());
+            return studentRepository.save(student);
+    }
 }
